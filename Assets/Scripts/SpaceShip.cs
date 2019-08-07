@@ -17,6 +17,7 @@ public class SpaceShip : MonoBehaviour
     public Transform ExtraGun2;
     public float ReloadExtraGunTimeout = 2;
 
+    public GameObject Explosion;
 
     private Rigidbody body;
     private SphereCollider sphere;
@@ -36,6 +37,13 @@ public class SpaceShip : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.tag == "Asteroid") {
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     public void ShootMainGun() {
