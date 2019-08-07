@@ -7,29 +7,51 @@ public class SpaceShip : MonoBehaviour
 {
     public float MotionSpeed = 1;
     public float Tilt = 1;
-    public GameObject Сartridge;
+    public GameObject MainСartridge;
     public Transform MainGun;
-
     public float ReloadMainGunTimeout = 1;
+    
+    public GameObject ExtraСartridge;
+    public Transform ExtraGun1;
+    public Transform ExtraGun2;
+    public float ReloadExtraGunTimeout = 2;
+
 
     private Rigidbody body;
     private SphereCollider sphere;
-    private float reloadMainGunTime;
-    private bool ReloadMainGun {
-        get { return Time.time < reloadMainGunTime; }
-        set { 
-            if (value == true) {
-                reloadMainGunTime = Time.time + ReloadMainGunTimeout;
-            }
+    private Reloader reloaderMain;
+    private Reloader reloaderExtra;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        body = GetComponent<Rigidbody>();
+        sphere = GetComponent<SphereCollider>();
+        reloaderMain = new Reloader(ReloadMainGunTimeout);
+        reloaderExtra = new Reloader(ReloadExtraGunTimeout);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void ShootMainGun() {
+        if (reloaderMain.Ready) {
+            reloaderMain.Shot();
+            Instantiate(MainСartridge, MainGun.position, body.rotation);
         }
     }
 
-    public void ShotMainGun() {
-        if (!ReloadMainGun) {
-            ReloadMainGun = true;
-            Instantiate(Сartridge, MainGun.position, body.rotation);
+    public void ShootExtraGun() {
+        if (reloaderExtra.Ready) {
+            reloaderExtra.Shot();
+            Instantiate(ExtraСartridge, ExtraGun1.position, body.rotation*Quaternion.Euler(0,0,45));
+            Instantiate(ExtraСartridge, ExtraGun2.position, body.rotation*Quaternion.Euler(0,0,-45));
         }
     }
+
     public void Move(float xMove, float yMove, BoxCollider boundary = null) {
         body.velocity = new Vector3(xMove, yMove, 0) * MotionSpeed;
         body.rotation = Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
@@ -43,19 +65,6 @@ public class SpaceShip : MonoBehaviour
                                 center.y + (boundary.size.y/2-sphere.radius));
             body.position = new Vector3(xPos, yPos, body.position.z);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        body = GetComponent<Rigidbody>();
-        sphere = GetComponent<SphereCollider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 }

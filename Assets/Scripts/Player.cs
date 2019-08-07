@@ -21,7 +21,10 @@ public class Player : MonoBehaviour
         float yMove = Input.GetAxis("Vertical");
         ship.Move(xMove, yMove, Boundary);
         if (Input.GetButton("Fire1")) {
-            ship.ShotMainGun();
+            ship.ShootMainGun();
+        }
+        if (Input.GetButton("Fire2")) {
+            ship.ShootExtraGun();
         }
     }
 }
