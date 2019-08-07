@@ -64,12 +64,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081b89d7d8e66dbac8b489cef230fcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ZAngle: 45
   MotionSpeed: 30
   Tilt: 25
-  "\u0421artridge": {fileID: 4511654463782287548, guid: d630f2f7b871a61969c6c835b58bcbc8,
+  "Main\u0421artridge": {fileID: 4511654463782287548, guid: d630f2f7b871a61969c6c835b58bcbc8,
     type: 3}
   MainGun: {fileID: 1696317745206121878}
   ReloadMainGunTimeout: 1
+  "Extra\u0421artridge": {fileID: 3579034567273772573, guid: 0af394e17ee80354f9c16f373af8dc44,
+    type: 3}
+  ExtraGun1: {fileID: 0}
+  ExtraGun2: {fileID: 0}
+  ReloadExtraGunTimeout: 2
+  Explosion: {fileID: 7121219846286588260, guid: f6c50044f521aea4bb7f2c5e4a7b9390,
+    type: 3}
 --- !u!135 &1701133473435269258
 SphereCollider:
   m_ObjectHideFlags: 0

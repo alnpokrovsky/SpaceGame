@@ -40,11 +40,17 @@ public class SpaceShip : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.tag == "Asteroid") {
+        if (other.tag == "Enemy") {
+            Alive = false;
             Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
+
+    public bool Alive {
+        get;
+        private set;
+    } = true;
 
     public void ShootMainGun() {
         if (reloaderMain.Ready) {

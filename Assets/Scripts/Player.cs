@@ -17,14 +17,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xMove = Input.GetAxis("Horizontal");
-        float yMove = Input.GetAxis("Vertical");
-        ship.Move(xMove, yMove, Boundary);
-        if (Input.GetButton("Fire1")) {
-            ship.ShootMainGun();
-        }
-        if (Input.GetButton("Fire2")) {
-            ship.ShootExtraGun();
+        if (ship.Alive) {
+            float xMove = Input.GetAxis("Horizontal");
+            float yMove = Input.GetAxis("Vertical");
+            ship.Move(xMove, yMove, Boundary);
+            if (Input.GetButton("Fire1")) {
+                ship.ShootMainGun();
+            }
+            if (Input.GetButton("Fire2")) {
+                ship.ShootExtraGun();
+            }
+        } else {
+            Destroy(this.gameObject);
         }
     }
 }
