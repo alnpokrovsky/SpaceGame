@@ -34,30 +34,29 @@ public class SpaceShip : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.tag == "Enemy") {
-            Alive = false;
+        if (other.tag == "GameBoundary") return;
+        
+        if (other.tag != tag) {
             Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
 
-    public bool Alive {
-        get;
-        private set;
-    } = true;
-
     public void ShootMainGun() {
         if (reloaderMain.Ready) {
             reloaderMain.Shot();
-            Instantiate(MainСartridge, MainGun.position, QZRotation(0));
+            Instantiate(MainСartridge, MainGun.position, QZRotation(0))
+            .tag = tag;
         }
     }
 
     public void ShootExtraGun() {
         if (reloaderExtra.Ready) {
             reloaderExtra.Shot();
-            Instantiate(ExtraСartridge, ExtraGun1.position, QZRotation(+45));
-            Instantiate(ExtraСartridge, ExtraGun2.position, QZRotation(-45));
+            Instantiate(ExtraСartridge, ExtraGun1.position, QZRotation(+45))
+            .tag = tag;
+            Instantiate(ExtraСartridge, ExtraGun2.position, QZRotation(-45))
+            .tag = tag;
         }
     }
 

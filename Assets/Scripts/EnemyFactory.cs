@@ -35,6 +35,7 @@ public class EnemyFactory : MonoBehaviour
             } else {
                 SpaceShip ship = Instantiate(SpaceShip, p, Quaternion.identity)
                 .GetComponent<SpaceShip>();
+                ship.gameObject.tag = "Enemy";
                 ship.ZAngle = 180;
                 ship.Move(0,1);
             }

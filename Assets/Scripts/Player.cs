@@ -8,27 +8,22 @@ public class Player : MonoBehaviour
 
     private SpaceShip ship;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        ship = GameObject.Find("SpaceShip").GetComponent<SpaceShip>();
+        ship = GetComponent<SpaceShip>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ship.Alive) {
-            float xMove = Input.GetAxis("Horizontal");
-            float yMove = Input.GetAxis("Vertical");
-            ship.Move(xMove, yMove, Boundary);
-            if (Input.GetButton("Fire1")) {
-                ship.ShootMainGun();
-            }
-            if (Input.GetButton("Fire2")) {
-                ship.ShootExtraGun();
-            }
-        } else {
-            Destroy(this.gameObject);
+        float xMove = Input.GetAxis("Horizontal");
+        float yMove = Input.GetAxis("Vertical");
+        ship.Move(xMove, yMove, Boundary);
+        if (Input.GetButton("Fire1")) {
+            ship.ShootMainGun();
+        }
+        if (Input.GetButton("Fire2")) {
+            ship.ShootExtraGun();
         }
     }
 }
