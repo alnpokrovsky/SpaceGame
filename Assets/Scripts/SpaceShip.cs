@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
+    public float ZAngle = 45;
     public float MotionSpeed = 1;
     public float Tilt = 1;
     public GameObject MainСartridge;
@@ -40,21 +41,21 @@ public class SpaceShip : MonoBehaviour
     public void ShootMainGun() {
         if (reloaderMain.Ready) {
             reloaderMain.Shot();
-            Instantiate(MainСartridge, MainGun.position, body.rotation);
+            Instantiate(MainСartridge, MainGun.position, QZRotation(0));
         }
     }
 
     public void ShootExtraGun() {
         if (reloaderExtra.Ready) {
             reloaderExtra.Shot();
-            Instantiate(ExtraСartridge, ExtraGun1.position, body.rotation*Quaternion.Euler(0,0,45));
-            Instantiate(ExtraСartridge, ExtraGun2.position, body.rotation*Quaternion.Euler(0,0,-45));
+            Instantiate(ExtraСartridge, ExtraGun1.position, QZRotation(+45));
+            Instantiate(ExtraСartridge, ExtraGun2.position, QZRotation(-45));
         }
     }
 
     public void Move(float xMove, float yMove, BoxCollider boundary = null) {
-        body.velocity = new Vector3(xMove, yMove, 0) * MotionSpeed;
-        body.rotation = Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
+        body.velocity = QZRotation(0) * new Vector3(xMove, yMove, 0) * MotionSpeed;
+        body.rotation = QZRotation(0) * Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
         if (boundary != null) {
             Vector3 center = boundary.center - sphere.center;
             float xPos = Mathf.Clamp(body.position.x,
@@ -65,6 +66,10 @@ public class SpaceShip : MonoBehaviour
                                 center.y + (boundary.size.y/2-sphere.radius));
             body.position = new Vector3(xPos, yPos, body.position.z);
         }
+    }
+
+    private Quaternion QZRotation(float z) {
+        return Quaternion.Euler(0,0, ZAngle + z);
     }
 
 }

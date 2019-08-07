@@ -703,6 +703,11 @@ PrefabInstance:
       propertyPath: ReloadExtraGunTimeout
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: ZAngle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e1a3e51515b124da2a583889472c39, type: 3}
 --- !u!4 &1989189909 stripped
