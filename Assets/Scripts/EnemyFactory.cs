@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour
 {
     public GameObject Asteroid;
+    public GameObject SpaceShip;
     public float Timeout = 1;
 
     private float minXPos;
@@ -13,8 +14,7 @@ public class EnemyFactory : MonoBehaviour
     private float zPos;
     private Reloader reloader;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         minXPos = transform.position.x - transform.localScale.x/2;
         maxXPos = transform.position.x + transform.localScale.x/2;
@@ -30,7 +30,14 @@ public class EnemyFactory : MonoBehaviour
         if (reloader.Ready) {
             reloader.Shot();
             Vector3 p = new Vector3(Random.Range(minXPos, maxXPos), yPos, zPos);
-            Instantiate(Asteroid, p, Quaternion.identity);
+            if (Random.value > 0.2) {
+                Instantiate(Asteroid, p, Quaternion.identity);
+            } else {
+                SpaceShip ship = Instantiate(SpaceShip, p, Quaternion.identity)
+                .GetComponent<SpaceShip>();
+                ship.ZAngle = 180;
+                ship.Move(0,1);
+            }
         }
     }
 }

@@ -10,19 +10,17 @@ public class Asteroid : MonoBehaviour
 
     private Rigidbody body;
 
-    // Start is called before the first frame update
+    void Awake() {
+        body = GetComponent<Rigidbody>();        
+    }
+
     void Start()
     {
-        body = GetComponent<Rigidbody>();
         float speed = Random.Range(MinSpeed, MaxSpeed);
         body.velocity = Vector3.down * speed;
         body.angularVelocity = Random.insideUnitSphere * speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "GameBoundary") return;

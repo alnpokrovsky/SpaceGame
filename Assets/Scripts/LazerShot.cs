@@ -13,9 +13,8 @@ public class LazerShot : MonoBehaviour
         body.velocity = body.rotation * Vector3.up * Speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    void OnTriggerEnter(Collider other) {
+        // Destroy(this.gameObject);
     }
 }

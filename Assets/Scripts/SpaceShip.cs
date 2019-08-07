@@ -25,18 +25,12 @@ public class SpaceShip : MonoBehaviour
     private Reloader reloaderExtra;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         body = GetComponent<Rigidbody>();
         sphere = GetComponent<SphereCollider>();
         reloaderMain = new Reloader(ReloadMainGunTimeout);
         reloaderExtra = new Reloader(ReloadExtraGunTimeout);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter(Collider other) {

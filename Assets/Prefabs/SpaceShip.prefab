@@ -64,18 +64,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081b89d7d8e66dbac8b489cef230fcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZAngle: 45
+  ZAngle: 0
   MotionSpeed: 30
   Tilt: 25
   "Main\u0421artridge": {fileID: 4511654463782287548, guid: d630f2f7b871a61969c6c835b58bcbc8,
     type: 3}
   MainGun: {fileID: 1696317745206121878}
-  ReloadMainGunTimeout: 1
+  ReloadMainGunTimeout: 0.8
   "Extra\u0421artridge": {fileID: 3579034567273772573, guid: 0af394e17ee80354f9c16f373af8dc44,
     type: 3}
-  ExtraGun1: {fileID: 0}
-  ExtraGun2: {fileID: 0}
-  ReloadExtraGunTimeout: 2
+  ExtraGun1: {fileID: 1699253474663154386}
+  ExtraGun2: {fileID: 1696388798749265620}
+  ReloadExtraGunTimeout: 0.4
   Explosion: {fileID: 7121219846286588260, guid: f6c50044f521aea4bb7f2c5e4a7b9390,
     type: 3}
 --- !u!135 &1701133473435269258
@@ -98,10 +98,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701133473435269365}
     m_Modifications:
-    - target: {fileID: 1434627103891488, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
-      propertyPath: m_Name
-      value: LeftEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4368491947231596, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.54
@@ -154,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1434627103891488, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
+      propertyPath: m_Name
+      value: LeftEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 198151785488069066, guid: 52d340ed9c2714c4f8aabf1f82df1b58,
         type: 3}
       propertyPath: LightsModule.enabled
@@ -174,10 +174,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701133473435269365}
     m_Modifications:
-    - target: {fileID: 1589203934501006, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
-      propertyPath: m_Name
-      value: Ship
-      objectReference: {fileID: 0}
     - target: {fileID: 4301495225298160, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -234,6 +230,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.10000006
       objectReference: {fileID: 0}
+    - target: {fileID: 1589203934501006, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
+      propertyPath: m_Name
+      value: Ship
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
 --- !u!4 &1699242231231609336 stripped
@@ -248,6 +248,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1701133473392022792}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1699253474663154386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4316586847213530, guid: 05d8adff78ace1446a04008d1d27ad10,
+    type: 3}
+  m_PrefabInstance: {fileID: 1701133473392022792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1696388798749265620 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4903265316117468, guid: 05d8adff78ace1446a04008d1d27ad10,
+    type: 3}
+  m_PrefabInstance: {fileID: 1701133473392022792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1701133474825111259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,10 +267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701133473435269365}
     m_Modifications:
-    - target: {fileID: 1434627103891488, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
-      propertyPath: m_Name
-      value: RightEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4368491947231596, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.54
@@ -310,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 4368491947231596, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434627103891488, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
+      propertyPath: m_Name
+      value: RightEngine
       objectReference: {fileID: 0}
     - target: {fileID: 198151785488069066, guid: 52d340ed9c2714c4f8aabf1f82df1b58,
         type: 3}
