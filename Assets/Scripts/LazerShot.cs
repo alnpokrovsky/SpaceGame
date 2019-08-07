@@ -9,7 +9,8 @@ public class LazerShot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().velocity = Vector3.up * Speed;
+        Rigidbody body = GetComponent<Rigidbody>();
+        body.velocity = body.rotation * Vector3.up * Speed;
     }
 
     // Update is called once per frame
