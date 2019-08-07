@@ -368,8 +368,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 70, z: 50}
-  m_Center: {x: 0, y: -5, z: 50}
+  m_Size: {x: 100, y: 80, z: 50}
+  m_Center: {x: 0, y: 0, z: 50}
 --- !u!4 &1172605442
 Transform:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 1218960441}
   - component: {fileID: 1218960440}
   - component: {fileID: 1218960439}
+  - component: {fileID: 1218960438}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -414,6 +415,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1218960438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218960437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04b154557a14c24b8ab15ef49b5949c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSpeed: 0.1
 --- !u!23 &1218960439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -564,6 +578,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1545643805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1699253474663154386, guid: 40e1a3e51515b124da2a583889472c39,
+    type: 3}
+  m_PrefabInstance: {fileID: 1878678385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1878678385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,8 +671,46 @@ PrefabInstance:
       propertyPath: MaxXPos
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: "Main\u0421artridge"
+      value: 
+      objectReference: {fileID: 4511654463782287548, guid: d630f2f7b871a61969c6c835b58bcbc8,
+        type: 3}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: ExtraGun1
+      value: 
+      objectReference: {fileID: 1545643805}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: ExtraGun2
+      value: 
+      objectReference: {fileID: 1989189909}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: "Extra\u0421artridge"
+      value: 
+      objectReference: {fileID: 3579034567273772573, guid: 0af394e17ee80354f9c16f373af8dc44,
+        type: 3}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: ReloadMainGunTimeout
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701133473435269367, guid: 40e1a3e51515b124da2a583889472c39,
+        type: 3}
+      propertyPath: ReloadExtraGunTimeout
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e1a3e51515b124da2a583889472c39, type: 3}
+--- !u!4 &1989189909 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1696388798749265620, guid: 40e1a3e51515b124da2a583889472c39,
+    type: 3}
+  m_PrefabInstance: {fileID: 1878678385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2004617781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1701133473435269365, guid: 40e1a3e51515b124da2a583889472c39,
