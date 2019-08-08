@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1701133473435269365}
   - component: {fileID: 1701133473435269364}
   - component: {fileID: 1701133473435269367}
-  - component: {fileID: 1701133473435269258}
+  - component: {fileID: 5052757992214589095}
+  - component: {fileID: 1036371186361748655}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -64,10 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081b89d7d8e66dbac8b489cef230fcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZAngle: 0
   MotionSpeed: 30
   Tilt: 25
-  "Main\u0421artridge": {fileID: 4511654463782287548, guid: d630f2f7b871a61969c6c835b58bcbc8,
+  "Main\u0421artridge": {fileID: 7458590441623781670, guid: 8a2e692fb61f5ea40a1367c0705a8470,
     type: 3}
   MainGun: {fileID: 1696317745206121878}
   ReloadMainGunTimeout: 0.8
@@ -78,8 +78,8 @@ MonoBehaviour:
   ReloadExtraGunTimeout: 0.4
   Explosion: {fileID: 7121219846286588260, guid: f6c50044f521aea4bb7f2c5e4a7b9390,
     type: 3}
---- !u!135 &1701133473435269258
-SphereCollider:
+--- !u!65 &5052757992214589095
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,8 +89,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.27
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 12, y: 6, z: 6}
+  m_Center: {x: 0, y: -3.2, z: 0}
+--- !u!65 &1036371186361748655
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701133473435269366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 6, z: 3}
+  m_Center: {x: 0, y: 2.8, z: 0.68}
 --- !u!1001 &1701133473260067948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,11 +237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301495225298160, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.10000006
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4301495225298160, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.10000006
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1589203934501006, guid: 05d8adff78ace1446a04008d1d27ad10, type: 3}
       propertyPath: m_Name
