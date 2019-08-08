@@ -14,44 +14,13 @@ static public class ColliderUnion
         Debug.Log("Doubled Rigidbody's Mass to " + body.mass + " from Context Menu.");
     }
 
-    static private Bounds? ContentBoundsAbs(GameObject rootGameObject) {
-
-        if (rootGameObject.transform.childCount == 0) {
-            return rootGameObject.GetComponent<Renderer>()?.bounds; 
-        }
-        
-        bool hasBounds = false;
-        Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
-
-        for (int i = 0; i < rootGameObject.transform.childCount; ++i) {
-            Bounds? childBounds = ContentBoundsAbs(rootGameObject.transform.GetChild(i).gameObject);
-            if (childBounds.HasValue) {
-                if (hasBounds) {
-                    bounds.Encapsulate(childBounds.Value);
-                } else {
-                    bounds = childBounds.Value;
-                    hasBounds = true;
-                }
-            }
-        }
-
-        return hasBounds ? bounds : (Bounds?)null;
-    }
-
-    static public Bounds? ContentBounds(GameObject rootGameObject) {
-        Bounds? bounds = ContentBoundsAbs(rootGameObject);
-        if (!bounds.HasValue) return bounds;
-        else return new Bounds(
-            rootGameObject.transform.InverseTransformPoint(bounds.Value.center),
-            rootGameObject.transform.InverseTransformVector(bounds.Value.size)
-        );
-    }
+    
 
     [MenuItem("MenuPlugins/BoxCollider/Fit to Children")]
     static void FitToChildren() {
         foreach (GameObject rootGameObject in Selection.gameObjects) {
     
-            Bounds? boundsmaybe = ContentBounds(rootGameObject);
+            Bounds? boundsmaybe = ContentBounds.Box(rootGameObject);
             if (boundsmaybe.HasValue) {
                 Bounds bounds = boundsmaybe.Value;
                 //  BoxCollider collider = (BoxCollider)rootGameObject.GetComponent<Collider>();
