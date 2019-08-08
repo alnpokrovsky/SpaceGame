@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     public BoxCollider Boundary;
 
-    private SpaceShip ship;
+    private SpaceShipScript ship;
 
     void Awake()
     {
-        ship = GetComponent<SpaceShip>();
+        ship = GetComponent<SpaceShipScript>();
     }
 
     // Update is called once per frame

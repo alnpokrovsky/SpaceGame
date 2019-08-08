@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingSpace : MonoBehaviour
+public class MovingSpaceScript : MonoBehaviour
 {
     public float ScrollSpeed = 0.1F;
 

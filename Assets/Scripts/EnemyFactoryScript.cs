@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFactory : MonoBehaviour
+public class EnemyFactoryScript : MonoBehaviour
 {
     public GameObject Asteroid;
     public GameObject SpaceShip;
@@ -33,11 +33,8 @@ public class EnemyFactory : MonoBehaviour
             if (Random.value > 0.2) {
                 Instantiate(Asteroid, p, Quaternion.identity);
             } else {
-                SpaceShip ship = Instantiate(SpaceShip, p, Quaternion.identity)
-                .GetComponent<SpaceShip>();
-                ship.gameObject.tag = "Enemy";
-                ship.ZAngle = 180;
-                ship.Move(0,1);
+                Instantiate(SpaceShip, p, Quaternion.identity)
+                .AddComponent(typeof(EnemyScript));
             }
         }
     }
