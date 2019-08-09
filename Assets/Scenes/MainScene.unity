@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 1767594675}
   m_Layer: 0
   m_Name: EnemyFactory
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,11 +1068,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa9b17ac2100e54197a8e6847307d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Asteroid: {fileID: 3602433192975905142, guid: f48e0d72f9507554d954136f49c2fcb6,
-    type: 3}
-  SpaceShip: {fileID: 1701133473435269366, guid: 40e1a3e51515b124da2a583889472c39,
-    type: 3}
-  Timeout: 1
+  Asteroids:
+  - {fileID: 3602433192975905142, guid: f48e0d72f9507554d954136f49c2fcb6, type: 3}
+  - {fileID: 9036396860166744497, guid: dee3293c02465f04a9c646c6a3cf8e26, type: 3}
+  - {fileID: 3475104306574514486, guid: 648bd2903133e3941b6d436c041f4069, type: 3}
+  - {fileID: 6521518872779535345, guid: 5449b6f0b776ff145beddeec615eb15b, type: 3}
+  - {fileID: 8612414670146553540, guid: 41e6c8a7f51e9244792a7907377e9984, type: 3}
+  SpaceShips:
+  - {fileID: 1701133473435269366, guid: 40e1a3e51515b124da2a583889472c39, type: 3}
+  AsteroidsProbability: 0.8
+  EnemiesCount: 20
+  EnemiesTimeout: 0.8
+  WavesTimeout: 5
 --- !u!1001 &1878678385
 PrefabInstance:
   m_ObjectHideFlags: 0
