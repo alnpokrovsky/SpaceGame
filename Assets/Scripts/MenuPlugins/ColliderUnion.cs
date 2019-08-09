@@ -23,7 +23,6 @@ static public class ColliderUnion
             Bounds? boundsmaybe = ContentBounds.Box(rootGameObject);
             if (boundsmaybe.HasValue) {
                 Bounds bounds = boundsmaybe.Value;
-                //  BoxCollider collider = (BoxCollider)rootGameObject.GetComponent<Collider>();
                 BoxCollider collider = rootGameObject.GetComponent<BoxCollider>();
                 if (collider == null) {
                     collider = rootGameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;

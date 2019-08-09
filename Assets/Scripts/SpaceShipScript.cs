@@ -67,6 +67,10 @@ public class SpaceShipScript : MonoBehaviour
         body.rotation = QZRotation() * Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
     }
 
+    public void MovePos(Vector3 pos) {
+        body.MovePosition(pos);
+    }
+
     private Quaternion QZRotation(float z = 0) {
         return Quaternion.Euler(0,0, zAngle + z);
     }
