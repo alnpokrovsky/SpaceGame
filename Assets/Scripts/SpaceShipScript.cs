@@ -64,18 +64,18 @@ public class SpaceShipScript : MonoBehaviour
         }
     }
 
-    public void Move(float xMove, float yMove, BoxCollider gameBoundary = null) {
+    public void Move(float xMove, float yMove, Collider gameBoundary = null) {
         body.velocity = QZRotation() * new Vector3(xMove, yMove, 0) * MotionSpeed;
         body.rotation = QZRotation() * Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
         if (gameBoundary != null) {
-            Vector3 center = gameBoundary.center - gameBoundary.center;
-            Vector3 size = gameBoundary.size - shipBounds.size;
+            Vector3 center = gameBoundary.bounds.center - shipBounds.center;
+            Vector3 extents = gameBoundary.bounds.extents - shipBounds.extents;
             float xPos = Mathf.Clamp(body.position.x,
-                                center.x - size.x/2,
-                                center.x + size.x/2);
+                                center.x - extents.x,
+                                center.x + extents.x);
             float yPos = Mathf.Clamp(body.position.y, 
-                                center.y - size.y/2,
-                                center.y + size.y/2);
+                                center.y - extents.y,
+                                center.y + extents.y);
             body.position = new Vector3(xPos, yPos, body.position.z);
         }
     }

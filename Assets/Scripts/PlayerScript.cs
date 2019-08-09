@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public BoxCollider Boundary;
+    public Collider Boundary;
 
     private SpaceShipScript ship;
 
