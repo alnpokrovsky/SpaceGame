@@ -19,7 +19,6 @@ public class SpaceShipScript : MonoBehaviour
     public GameObject Explosion;
 
     private Rigidbody body;
-    private Bounds shipBounds;
     private Reloader reloaderMain;
     private Reloader reloaderExtra;
     private float zAngle;
@@ -34,7 +33,6 @@ public class SpaceShipScript : MonoBehaviour
 
     void Start() {
         zAngle = transform.rotation.eulerAngles.z;
-        shipBounds = ContentBounds.Box(this.gameObject).Value;
     }
 
     void OnTriggerEnter(Collider other) {
@@ -64,20 +62,9 @@ public class SpaceShipScript : MonoBehaviour
         }
     }
 
-    public void Move(float xMove, float yMove, Collider gameBoundary = null) {
+    public void Move(float xMove, float yMove) {
         body.velocity = QZRotation() * new Vector3(xMove, yMove, 0) * MotionSpeed;
         body.rotation = QZRotation() * Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
-        if (gameBoundary != null) {
-            Vector3 center = gameBoundary.bounds.center - shipBounds.center;
-            Vector3 extents = gameBoundary.bounds.extents - shipBounds.extents;
-            float xPos = Mathf.Clamp(body.position.x,
-                                center.x - extents.x,
-                                center.x + extents.x);
-            float yPos = Mathf.Clamp(body.position.y, 
-                                center.y - extents.y,
-                                center.y + extents.y);
-            body.position = new Vector3(xPos, yPos, body.position.z);
-        }
     }
 
     private Quaternion QZRotation(float z = 0) {
