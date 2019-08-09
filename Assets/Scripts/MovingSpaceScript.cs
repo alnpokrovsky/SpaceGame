@@ -6,17 +6,17 @@ public class MovingSpaceScript : MonoBehaviour
 {
     public float ScrollSpeed = 0.1F;
 
-    private Renderer rend;
+    private CanvasRenderer rend;
 
     void Awake()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<CanvasRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         float offset = Time.time * ScrollSpeed;
-        rend.material.mainTextureOffset = new Vector2(0, offset);
+        rend?.GetMaterial()?.SetTextureOffset("_MainTex", new Vector2(0, offset));
     }
 }
