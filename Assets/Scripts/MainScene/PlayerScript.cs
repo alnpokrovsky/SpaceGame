@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
 
     private SpaceShipScript ship;
     private Bounds shipBounds;
+    private GameControllerScript gameController;
 
     void Awake()
     {
@@ -16,6 +17,8 @@ public class PlayerScript : MonoBehaviour
 
     void Start() {
         shipBounds = ContentBounds.Box(this.gameObject).Value;
+        gameController = GameObject.FindWithTag("GameController")
+            .GetComponent<GameControllerScript>();
     }
 
     // Update is called once per frame
@@ -36,10 +39,18 @@ public class PlayerScript : MonoBehaviour
             transform.position = new Vector3(xPos, yPos, transform.position.z);
         }
         if (Input.GetButton("Fire1")) {
-            ship.ShootMainGun();
+            if (ship.ShootMainGun()) {
+                gameController.Score -= 10;
+            }
         }
         if (Input.GetButton("Fire2")) {
-            ship.ShootExtraGun();
+            if (ship.ShootExtraGun()) {
+                gameController.Score -= 20;
+            }
         }
+    }
+
+    void OnDestroy() {
+        gameController.GameOver = true;
     }
 }

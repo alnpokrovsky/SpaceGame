@@ -44,21 +44,30 @@ public class SpaceShipScript : MonoBehaviour
         }
     }
 
-    public void ShootMainGun() {
+    public bool ShootMainGun() {
         if (reloaderMain.Ready) {
             reloaderMain.Shot();
-            Instantiate(MainСartridge, MainGun.position, QZRotation(0))
-            .tag = tag;
+            Instantiate(MainСartridge, 
+                MainGun.position, QZRotation(0))
+                .tag = tag;
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public void ShootExtraGun() {
+    public bool ShootExtraGun() {
         if (reloaderExtra.Ready) {
             reloaderExtra.Shot();
-            Instantiate(ExtraСartridge, ExtraGun1.position, QZRotation(+45))
-            .tag = tag;
-            Instantiate(ExtraСartridge, ExtraGun2.position, QZRotation(-45))
-            .tag = tag;
+            Instantiate(ExtraСartridge, 
+                ExtraGun1.position, QZRotation(+45))
+                .tag = tag;
+            Instantiate(ExtraСartridge, 
+                ExtraGun2.position, QZRotation(-45))
+                .tag = tag;
+            return true;
+        } else {
+            return false;
         }
     }
 

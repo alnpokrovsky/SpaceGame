@@ -8,9 +8,6 @@ public class EnemyFactoryScript : MonoBehaviour
     public GameObject[] Asteroids;
     public GameObject[] SpaceShips;
     public float AsteroidsProbability = 0.8f;
-    public int EnemiesCount = 20;
-    public float EnemiesTimeout = 0.8f;
-    public float WavesTimeout = 5;
 
     private float minXPos;
     private float maxXPos;
@@ -25,24 +22,9 @@ public class EnemyFactoryScript : MonoBehaviour
         zPos = transform.position.z;
     }
 
-    void Start() {
-        Random.InitState ((int)System.DateTime.Now.Ticks);
-        StartCoroutine(GenerateWaves());
-    }
+    public GameObject GenerateEnemy() {
+        Vector3 p = new Vector3(Random.Range(minXPos, maxXPos), yPos, zPos);
 
-    private IEnumerator GenerateWaves() {
-        while (true) {
-            yield return new WaitForSeconds(WavesTimeout);
-            foreach (int i in Enumerable.Range(0, EnemiesCount))
-            {
-                Vector3 p = new Vector3(Random.Range(minXPos, maxXPos), yPos, zPos);
-                GenerateEnemy(p);
-                yield return new WaitForSeconds(EnemiesTimeout);
-            }
-        }
-    }
-
-    private GameObject GenerateEnemy(Vector3 p) {
         if (Random.value < AsteroidsProbability) {
             int asteroidType = Random.Range(0, Asteroids.Length);
             return Instantiate(Asteroids[asteroidType], p, Quaternion.identity);
