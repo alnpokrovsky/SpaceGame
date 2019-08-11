@@ -27,10 +27,10 @@ public class EnemyFactoryScript : MonoBehaviour
 
         if (Random.value < AsteroidsProbability) {
             int asteroidType = Random.Range(0, Asteroids.Length);
-            return Instantiate(Asteroids[asteroidType], p, Quaternion.identity);
+            return Instantiate(Asteroids[asteroidType], p, transform.rotation);
         } else {
             int shipType = Random.Range(0, SpaceShips.Length);
-            GameObject ship = Instantiate(SpaceShips[shipType], p, Quaternion.identity);
+            GameObject ship = Instantiate(SpaceShips[shipType], p, transform.rotation);
             ship.AddComponent(typeof(EnemyScript));
             return ship;
         }

@@ -17,7 +17,7 @@ public class AsteroidScript : MonoBehaviour
     void Start()
     {
         float speed = Random.Range(MinSpeed, MaxSpeed);
-        body.velocity = Vector3.down * speed;
+        body.velocity = transform.up * speed;
         body.angularVelocity = Random.insideUnitSphere * speed * Random.value;
     }
 

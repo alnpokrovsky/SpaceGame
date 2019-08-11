@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 static public class ColliderUnion
 {
     // Add a menu item called "Double Mass" to a Rigidbody's context menu.
@@ -34,3 +36,5 @@ static public class ColliderUnion
         }
     }
 }
+
+#endif

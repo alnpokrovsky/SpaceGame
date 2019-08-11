@@ -71,13 +71,23 @@ public class SpaceShipScript : MonoBehaviour
         }
     }
 
-    public void Move(float xMove, float yMove) {
-        body.velocity = QZRotation() * new Vector3(xMove, yMove, 0) * MotionSpeed;
-        body.rotation = QZRotation() * Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
+    public void TargetAt(GameObject target) {
+        if (target != null) {
+            Quaternion q = Quaternion.LookRotation(
+                Vector3.forward,
+                target.transform.position - MainGun.position
+            );
+            zAngle = q.eulerAngles.z;    
+        }
     }
 
-    public void MovePos(Vector3 pos) {
-        body.MovePosition(pos);
+    public void Move(
+        float xMove, 
+        float yMove,
+        Quaternion? rotation = null
+    ) {
+        body.velocity = (rotation ?? QZRotation()) * new Vector3(xMove, yMove, 0) * MotionSpeed;
+        body.rotation = QZRotation() * Quaternion.Euler(yMove*Tilt, -xMove*Tilt, 0);
     }
 
     private Quaternion QZRotation(float z = 0) {
